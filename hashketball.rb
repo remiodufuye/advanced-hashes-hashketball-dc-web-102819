@@ -104,14 +104,14 @@ require 'pry'
                                     },
                                     {
                                         :player_name => "Ben Gordon" ,
-                                        :number => 0 ,
-                                        :shoe => 16 , 
-                                        :points => 12 , 
-                                        :rebounds => 4 , 
-                                        :assists => 7  , 
-                                        :steals => 22 , 
-                                        :blocks => 15 ,
-                                        :slam_dunks => 10 
+                                        :number => 8 ,
+                                        :shoe => 15 , 
+                                        :points => 33 , 
+                                        :rebounds => 3 , 
+                                        :assists => 2  , 
+                                        :steals => 1 , 
+                                        :blocks => 1 ,
+                                        :slam_dunks => 0 
                                     },
                                     {
                                         :player_name => "Kemba Walker" ,
@@ -135,23 +135,37 @@ require 'pry'
         end 
 
 
-
-    def num_points_scored(players_name)
-        
+   def players 
         # get access to all the players 
-        game_hash.keys.map do |loc|
-        new_array_of_players = []
-        binding.pry 
+        players =  game_hash.keys.map do |loc|
+            game_hash[loc][:players]
+            # binding.pry 
+            end  
+            players.flatten 
+   end 
+
+
+   def c (name)   
+       players.find do |player_hash|
+        player_hash[:player_name] == player_name
         end 
+   end 
+
+
+
+    def num_points_scored(player_name)
+        # get access to all the players 
+        found_player = find_the_player(player_name)
         # lookup the player 
-
         # get those stats !
-
+        found_player[:points]
     end 
 
 
 
-    def shoe_size()
+    def shoe_size(name)
+        found_player = find_the_player(name)
+        found_player[:shoe_size]
     end 
 
 
