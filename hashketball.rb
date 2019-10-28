@@ -145,9 +145,9 @@ require 'pry'
    end 
 
 
-   def c (name)   
+   def find_the_player(name)   
        players.find do |player_hash|
-        player_hash[:player_name] == player_name
+        player_hash[:player_name] == name
         end 
    end 
 
